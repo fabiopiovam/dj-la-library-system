@@ -87,3 +87,8 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Aptana project settings
+.project
+.pydevproject
+.settings
