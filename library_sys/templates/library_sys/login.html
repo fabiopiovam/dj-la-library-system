@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+
+<div class="login">
+    Digite seu login e senha
+</div>
+
+{% if form.errors %}
+<p class="error">
+    Lamentamos, nome de usuário ou senha incorreto!
+</p>
+{% endif %}
+
+<form class="form_login" action="" method="post">
+    {% csrf_token %}
+
+    <label for="username"></label>
+    <input type="text" name="username" value="" id="username" placeholder="Digite seu nome de usuário">
+    <br>
+
+    <label for="password"></label>
+    <input type="password" name="password" value="" id="password" placeholder="Digite sua senha">
+    <br>
+
+    <button type="submit" class="btn bucket">
+        Login
+    </button>
+    <br>
+
+</form>
+
+{% endblock %}

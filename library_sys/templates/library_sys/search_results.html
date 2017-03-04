@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Pesquisa{% endblock %}
+{% block content %}
+
+<div class="result">
+
+    <p>
+        Você procurou por: <strong>{{ query }}</strong>
+    </p>
+
+    {% if books %}
+    <p>
+        Registros encontrados: {{ books|length }}.
+    </p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th>AUTOR</th>
+                    <th>TÍTULO</th>
+                    <th>EDITORA</th>
+                    <th>ANO</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for book in books %}
+                <tr>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.publisher }}</td>
+                    <td>{{ book.year }}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+    {% else %}
+    <p class="error">
+        Nenhum registro encontrado
+    </p>
+    {% endif %}
+</div>
+
+<div class="login">
+    <a href="/search/">Procurar novamente</a>
+</div>
+
+{% endblock %}

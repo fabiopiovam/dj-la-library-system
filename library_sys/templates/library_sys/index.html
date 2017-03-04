@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="user">
+    Olá, {{ user.first_name.title }}
+    <br>
+    <a href="/change_pass" class="btn bucket">Alterar senha</a>
+    <br>
+    <a href="/book_list" class="btn bucket">Lista de livros</a>
+    <br>
+    <h5><a href="../logout">Sair</a></h5>
+</div>
+{% else %}
+<div class="login">
+    Antes de iniciar os trabalhos no sistema
+    <br>
+    Entre com sua conta
+    <br>
+    <a href="/login" class="btn bucket">Usuári@</a>
+    <a href="/admin" class="btn bucket">Administrador(a)</a>
+</div>
+{% endif %}
+{% endblock %}

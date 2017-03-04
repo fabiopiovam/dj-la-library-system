@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Alterar senha{% endblock %}
+{% block content %}
+
+<div class="login">
+    Alterar senha
+</div>
+
+<form class="form_login" action="" method="post">
+
+    {% for message in messages %}
+    {% if message.tags == 'error' %}
+    <p class="error">
+        {{ message }}
+    </p>
+    {% else %}
+    <p class="true">
+        {{ message }}
+    </p>
+    {% endif %}
+    {% endfor %}
+
+    {% csrf_token %}
+
+    <label for="id_old_password"></label>
+    <input type="password" name="old_password" value="" id="id_old_password" placeholder="Senha antiga">
+    <br>
+
+    <label for="id_new_password1"></label>
+    <input type="password" name="new_password1" value="" id="id_new_password1" placeholder="Nova senha">
+    <br>
+
+    <label for="id_new_password2"></label>
+    <input type="password" name="new_password2" value="" id="id_new_password2" placeholder="Repita nova senha">
+    <br>
+
+    <button type="submit" class="btn bucket">
+        Alterar senha
+    </button>
+    <br>
+
+</form>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Pesquisa{% endblock %}
+{% block content %}
+<div class="login">
+    Use a busca no site
+    <br>
+    para encontrar o livro:
+</div>
+
+<form class="form_login" action="" method="get">
+
+    {% if error %}
+    <p class="error">
+        Por favor, preencha pelo menos um critério de pesquisa
+    </p>
+    {% endif %}
+
+    <input type="text" name="name" placeholder="Título">
+    <br>
+
+    <input type="text" name="author" placeholder="Autor(a)">
+    <br>
+
+    <button type="submit" class="btn bucket">
+        Pesquisar
+    </button>
+    <br>
+
+</form>
+{% endblock %}
