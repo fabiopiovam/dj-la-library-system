@@ -1,0 +1,163 @@
+body {
+    background: url(../img/bg.jpg) no-repeat center center fixed;
+    margin-top: 0; /* Убираем отступы */
+    background-size: auto; /* Фон занимает всю доступную площадь */
+    position: relative;
+}
+
+a{
+    font-size: 12pt;
+    color: #ffffff;
+}
+
+a:hover{
+    font-size: 12pt;
+    color: #ffffff;
+}
+
+.logo {
+    margin-top: 25px;
+}
+
+.logo1 {
+    margin-top: 15px;
+    margin-left: 7px;
+    float: left;
+}
+
+.logo-text {
+    color: #ffffff;
+    font-size: 12pt;
+    margin-left: 15px;
+    line-height: 16px;
+    margin-top: 30px;
+    float: left;
+}
+
+.search{
+    margin-top: 30px;
+    margin-right: 30px;
+}
+
+.search a{
+    margin-left: 5px;
+}
+
+.title {
+    text-align: center;
+    color: #fff;
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+.user {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 30px;
+    font-size: 12pt;
+}
+.user h5{
+    margin-top: 30px;
+}
+
+.login {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 30px;
+    font-size: 12pt;
+}
+
+.bucket {
+    color: #ffffff;
+    background: #2a6c9a;
+    width: 160px;
+    border-radius: 0;
+    font-size: 16px;
+    line-height: 30px;
+    margin-top: 10px;
+    margin-right: 2px;
+    margin-left: 2px;
+    padding: 0;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+.bucket:hover {
+    color: #FFFFFF;
+    background: #3795d0;
+}
+
+.form_login {
+    text-align: center;
+    margin-top: 3px;
+    font-size: 11pt;
+}
+
+.form_login input {
+    height: 30px;
+    width: 200px;
+    text-align: center;
+    margin-top: 5px;
+    background: #ffffff;
+}
+
+.form_login input:focus {
+    border:2px solid #2a6c9a;
+}
+
+.error {
+   margin-top: 5px;
+   color: red;
+   font-size: 12pt;
+   text-align: center;
+}
+
+.true {
+   margin-top: 5px;
+   color: green;
+   font-size: 12pt;
+   text-align: center;
+}
+
+.main_page {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.result {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 30px;
+    font-size: 11pt;
+}
+
+.result p {
+    font-size: 12pt;
+}
+
+.table thead {
+    background-color: #2a6c9a;
+}
+
+.table th {
+    text-align: center;
+}
+
+.date {
+    border-width: 0;
+    text-align: left;
+    font-size: 10pt;
+    color: #3e4044;
+    background-color: #ffffff;
+}
+
+.date1 {
+    text-align: right;
+    font-size: 10pt;
+    color: red;
+    background-color: #ffffff;
+}
