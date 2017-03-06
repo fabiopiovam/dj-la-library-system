@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Home{% endblock %} | {% block title2 %}Site Title{% endblock %}</title>
+        <link rel="stylesheet" href="{% static "library_sys/css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "library_sys/css/bootstrap-theme.min.css" %">
+        <link rel="stylesheet" type="text/css" href="{% static "library_sys/styles.css" %}"/>
+        <script src="{% static "library_sys/js/jquery-latest.js" %}"></script>
+        <script src="{% static "library_sys/js/bootstrap.min.js" %}"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4 text-center">
+                        <a href="../index"><img src="{% static "library_sys/img/logo.png" %}" class="logo"></a>
+                    </div>
+                    <div class="col-sm-4 text-right">
+                        <div class="search">
+                            <img src="{% static "library_sys/img/search.png" %}"><a href="../search">Buscar livro</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="title">
+                    <h1>{% block site_title %}Site Title{% endblock %}</h1>
+                </div>
+                {% block content %}{% endblock %}
+
+                <div class="main_page">
+                    <a href="../index">Início</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
