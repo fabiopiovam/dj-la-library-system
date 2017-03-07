@@ -18,6 +18,11 @@ try:
 except:
     README = None
 
+try:
+    LICENSE = open('LICENSE').read()
+except:
+    LICENSE = None
+
 setup(
     name='dj-la-library-system',
     version="v0.1.0",
@@ -26,6 +31,7 @@ setup(
     ),
     long_description=README,
     install_requires=REQUIREMENTS,
+    license=LICENSE,
     author='Fábio Piovam Elias',
     author_email='fabio@laborautonomo.org',
     url='https://github.com/laborautonomo/dj-la-library-system/',
