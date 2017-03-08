@@ -25,7 +25,7 @@ except:
 
 setup(
     name='dj-la-library-system',
-    version="v0.1.0",
+    version="v0.2.0",
     description=(
         'Django Library System Application'
     ),
