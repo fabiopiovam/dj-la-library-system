@@ -20,3 +20,4 @@ Django Library Management System
 - Change layout images:
     - Create directories `library_sys/static/library_sys/img/`
     - Put images `bg.jpg`, `logo.png`, `favicon.png` and `search.png`
+    - Add `os.path.join(BASE_DIR, 'library_sys/static'),` into `STATICFILES_DIRS` on `settings.py`
