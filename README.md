@@ -10,10 +10,13 @@ Django Library Management System
     - Add a URL to urlpatterns:  `url(r'^', include('library_sys.urls')),`
 
 ### Implement a default layout (optional): 
-Create `base.html` into your root template with content:
+- Create `base.html` into your root template with content:
 ``` html
 {% extends "layout_libsys_0.1.0/base.html" %}
 {% block title %}Actual Page{% endblock %}
 {% block title2 %}Project name{% endblock %}
 {% block site_title %}This is my library management system{% endblock %}
 ```
+- Change layout images:
+    - Create directories `library_sys/static/library_sys/img/`
+    - Put images `bg.jpg`, `logo.png`, `favicon.png` and `search.png`
