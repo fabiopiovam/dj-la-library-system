@@ -12,6 +12,10 @@ try:
 except:
     REQUIREMENTS = None
 
+try:
+    DEPENDENCY_LINKS = [i.strip() for i in open("dependency_links.txt").readlines()]
+except:
+    DEPENDENCY_LINKS = None
 
 try:
     README = open('README.md').read()
@@ -31,6 +35,7 @@ setup(
     ),
     long_description=README,
     install_requires=REQUIREMENTS,
+    dependency_links=DEPENDENCY_LINKS,
     license=LICENSE,
     author='Fábio Piovam Elias',
     author_email='fabio@laborautonomo.org',

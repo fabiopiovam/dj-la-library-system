@@ -1,3 +1,2 @@
 django>=1.10,<1.11
 Pillow>=4.0.0,<5.0.0
--e git://github.com/laborautonomo/django-la-tags.git@v0.4.0#egg=django-la-tags
