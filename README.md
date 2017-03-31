@@ -2,6 +2,7 @@
 Django Library Management System
 
 - `pip install -e git+git://github.com/laborautonomo/dj-la-library-system.git@v0.1.0#egg=dj-la-library-system`
+- Require [django-la-tags - v0.4.0](https://github.com/laborautonomo/django-la-tags/tree/v0.4.0). If not auto install, execute `pip install -e git+git://github.com/laborautonomo/django-la-tags.git@v0.4.0#egg=django-la-tags`
 - execute `./manage.py makemigrations && ./manage.py migrate` (this line prevent the error [InvalidBasesError: Cannot resolve bases for...](http://stackoverflow.com/questions/30267237/invalidbaseserror-cannot-resolve-bases-for-modelstate-users-groupproxy))
 - Add `library_sys.apps.LibrarySysConfig` into `INSTALLED_APPS` of `settings.py` 
 - execute `./manage.py makemigrations && ./manage.py migrate` 
