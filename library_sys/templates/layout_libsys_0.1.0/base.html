@@ -15,15 +15,15 @@
         <div class="header">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <div class="search">
+                            <img src="{% static "library_sys/img/search.png" %}"><a href="/search">Buscar livro</a>
+                        </div>
+                    </div>
                     <div class="col-sm-4 text-center">
                         <a href="../index"><img src="{% static "library_sys/img/logo.png" %}" class="logo"></a>
                     </div>
-                    <div class="col-sm-4 text-right">
-                        <div class="search">
-                            <img src="{% static "library_sys/img/search.png" %}"><a href="../search">Buscar livro</a>
-                        </div>
-                    </div>
+                    <div class="col-sm-4 text-right"></div>
 
                 </div>
 
@@ -33,7 +33,7 @@
                 {% block content %}{% endblock %}
 
                 <div class="main_page">
-                    <a href="../index">Início</a>
+                    <a href="/index">Início</a>
                 </div>
             </div>
         </div>

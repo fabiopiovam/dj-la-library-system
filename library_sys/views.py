@@ -6,14 +6,18 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render_to_response, render, redirect
 from django.db.models.query import EmptyQuerySet
 from django.views.generic import ListView
+from django.core.exceptions import ObjectDoesNotExist
 
 from .models import Book, HistoryItem
+
 
 def index(request):
     return render_to_response('index.html', {'user': request.user})
 
+
 def home(request):
-    return render_to_response('index.html', {'username': request.user.first_name})
+    return render_to_response('index.html',
+                              {'username': request.user.first_name})
 
 
 def change_password(request):
@@ -27,33 +31,51 @@ def change_password(request):
             update_session_auth_hash(request, form.user)
             messages.success(request, "Senha alterada")
             return render(request, "change_pass.html",
-                          {'form': PasswordChangeForm(request.user), 'message': messages})
+                          {'form': PasswordChangeForm(request.user),
+                           'message': messages})
         else:
             messages.error(request, "Senha incorreta")
             return render(request, "change_pass.html",
-                          {'form': PasswordChangeForm(request.user), 'message': messages})
+                          {'form': PasswordChangeForm(request.user),
+                           'message': messages})
     return render(request, "change_pass.html",
-                  {'form': PasswordChangeForm(request.user), 'message': messages})
+                  {'form': PasswordChangeForm(request.user),
+                   'message': messages})
 
 
 def search(request):
     error = False
-    if 'name' in request.GET or 'author' in request.GET:
-        name = request.GET['name']
+    if 'title' in request.GET or 'author' in request.GET:
+        title = request.GET['title']
         author = request.GET['author']
-        if not name and not author:
+        if not title and not author:
             error = True
-        elif name and author:
-            books = Book.objects.filter(author__icontains=author, name__icontains=name)
+        elif title and author:
+            books = Book.obj_active.filter(author__name__icontains=author,
+                                        title__icontains=title)
             return render_to_response('search_results.html',
-                                      {'books': books, 'query': author + '-' + name})
-        elif name:
-            books = Book.objects.filter(name__icontains=name)
-            return render_to_response('search_results.html', {'books': books, 'query': name})
+                                      {'books': books,
+                                       'query': author + '-' + title})
+        elif title:
+            books = Book.obj_active.filter(title__icontains=title)
+            return render_to_response('search_results.html',
+                                      {'books': books, 'query': title})
         elif author:
-            books = Book.objects.filter(author__icontains=author)
-            return render_to_response('search_results.html', {'books': books, 'query': author})
+            books = Book.obj_active.filter(author__name__icontains=author)
+            return render_to_response('search_results.html',
+                                      {'books': books, 'query': author})
     return render_to_response('search_form.html', {'error': error})
+
+
+def book(request, slug):
+
+    try:
+        book = Book.obj_active.get(slug=slug)
+    except ObjectDoesNotExist:
+        book = None
+
+    return render_to_response('details.html',
+                              {'book': book})
 
 
 class BookListView(ListView):
@@ -63,12 +85,12 @@ class BookListView(ListView):
 
     def get_queryset(self):
         if self.request.user.is_authenticated():
-            return super(BookListView, self).get_queryset().filter(reader=self.request.user)
+            return super().get_queryset().filter(reader=self.request.user)
         else:
             return EmptyQuerySet
 
     def get_context_data(self, **kwargs):
-        context = super(BookListView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         total_fine = 0
         if self.get_queryset() != EmptyQuerySet:
             for item in self.get_queryset():
@@ -76,4 +98,3 @@ class BookListView(ListView):
                     total_fine = total_fine + item.fine
             context['total_fine'] = total_fine
         return context
-    

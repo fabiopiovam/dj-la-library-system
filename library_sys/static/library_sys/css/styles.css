@@ -1,8 +1,12 @@
 body {
     background: url(../img/bg.jpg) no-repeat center center fixed;
-    margin-top: 0; /* Убираем отступы */
-    background-size: auto; /* Фон занимает всю доступную площадь */
+    margin-top: 0;
+    background-size: cover;
     position: relative;
+}
+
+h1 {
+    color: #fff;
 }
 
 a{

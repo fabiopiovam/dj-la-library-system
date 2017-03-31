@@ -17,20 +17,27 @@
         <table class="table table-bordered table-condensed">
             <thead>
                 <tr>
-                    <th>AUTOR</th>
                     <th>TÍTULO</th>
+                    <th>AUTOR</th>
                     <th>EDITORA</th>
                     <th>ANO</th>
+                    <th>TAGS</th>
                 </tr>
             </thead>
             <tbody>
 
                 {% for book in books %}
                 <tr>
+                    <td>
+                        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a></td>
                     <td>{{ book.author }}</td>
-                    <td>{{ book.name }}</td>
                     <td>{{ book.publisher }}</td>
                     <td>{{ book.year }}</td>
+                    <td>
+                        {% with book as object %}
+                        {% include "tags/show_tags.html" %}
+                        {% endwith %}
+                    </td>
                 </tr>
                 {% endfor %}
 

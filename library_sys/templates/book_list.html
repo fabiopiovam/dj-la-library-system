@@ -18,7 +18,6 @@
                     <th>TÍTULO</th>
                     <th>EDITORA</th>
                     <th>ANO</th>
-                    <th>DÍVIDA</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,25 +26,13 @@
 
                 <tr>
                     <td>{{ book_i.book_item.book.author }}</td>
-                    <td>{{ book_i.book_item.book.name }}</td>
+                    <td>{{ book_i.book_item.book.title }}</td>
                     <td>{{ book_i.book_item.book.publisher }}</td>
                     <td>{{ book_i.book_item.book.year }}</td>
-                    <td> {% if book_i.fine > 0 and not book_i.is_fine_paid %}
-                    <div style="color: red;">
-                        R$ {{ book_i.fine }}
-                    </div> {% else %}
-                    -
-                    {% endif %} </td>
                 </tr>
 
                 <tr>
-                    <td colspan="2" class="date" style="border-width: 0; padding: 0; padding-left: 15px; height: 20px;">Condição: {{ book_i.date_taken }} - {{ book_i.date_due }}</td>
-                    <td colspan="3" class="date1" style="border-width: 0; padding: 0; padding-right: 15px;"> {% if book_i.date_returned == null or  book_i.date_returned != null and book_i.fine > 0 and  not book_i.is_fine_paid %}
-                    {% if book_i.date_returned != null and book_i.fine > 0 and  not book_i.is_fine_paid %}
-                    <div>
-                        O livro está na biblioteca, mas a dívida não foi paga
-                    </div> {% endif %}
-                    {% endif %} </td>
+                    <td colspan="5" class="date" style="border-width: 0; padding: 0; padding-left: 15px; height: 20px;">Condição: {{ book_i.date_taken }} - {{ book_i.date_due }}</td>
                 </tr>
 
                 {% endfor %}
@@ -53,11 +40,6 @@
             </tbody>
         </table>
     </div>
-
-    <!-- h3>
-    <div style="color: red">
-        Total à pagar: R$ {{ total_fine }}
-    </div></h3 -->
     <br>
     {% else %}
     <p class="error">
