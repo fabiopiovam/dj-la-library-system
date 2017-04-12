@@ -29,7 +29,7 @@ except:
 
 setup(
     name='dj-la-library-system',
-    version="v0.3.0",
+    version="v0.4.0",
     description=(
         'Django Library System Application'
     ),
