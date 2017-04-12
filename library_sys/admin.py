@@ -173,7 +173,7 @@ class BookAdmin(admin.ModelAdmin):
          {'fields': ['title', 'author', 'publisher', 'year', 'book_item_total',
                      'activated', 'available']}),
         ("Informações complementares",
-         {'fields': ['published_date', 'category', 'tags', 'synopsis',
+         {'fields': ['published_date', 'isbn', 'category', 'tags', 'synopsis',
                      'review', 'cover', 'file']}),
     ]
 

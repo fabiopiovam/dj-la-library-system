@@ -116,7 +116,13 @@ class Book(models.Model):
                               null=True, blank=True)
     review = models.TextField(verbose_name='resenha',
                               null=True, blank=True)
-
+    isbn = models.CharField(verbose_name='ISBN',
+                            max_length=30, 
+                            null=True, blank=True,
+                            help_text=_('''International Standard Book Number
+                            <a href='https://pt.wikipedia.org/wiki/International_Standard_Book_Number' 
+                            title='Mais informações'
+                            target='_blank'>(?)</a>'''))
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
