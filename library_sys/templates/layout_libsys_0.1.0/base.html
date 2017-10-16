@@ -10,6 +10,8 @@
         <link rel="stylesheet" type="text/css" href="{% static "library_sys/css/styles.css" %}"/>
         <script src="{% static "library_sys/js/jquery-latest.js" %}"></script>
         <script src="{% static "library_sys/js/bootstrap.min.js" %}"></script>
+
+        {% block head_extra %}{% endblock %}
     </head>
     <body>
         <div class="header">
