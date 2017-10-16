@@ -22,6 +22,7 @@ Django Library Management System
 - Create `base.html` into your root template with content:
 ``` html
 {% extends "layout_libsys_0.1.0/base.html" %}
+{% block head_extra %}{% endblock %}
 {% block title %}Actual Page{% endblock %}
 {% block title2 %}Project name{% endblock %}
 {% block site_title %}This is my library management system{% endblock %}
